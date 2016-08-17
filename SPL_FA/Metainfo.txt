@@ -1,0 +1,15 @@
+Name of QuantLet : FA_PCA
+
+Published in :  Factor Analysis and Multivariate Regression
+
+Description : 'Implementation of FA without and with rotation (varimax)'
+
+Keywords : 
+- dimension reduction
+- factor analysis
+- factor loadings
+- rotation
+
+Authors : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
+
+Submitted : Sat, Aug 13 2016 
