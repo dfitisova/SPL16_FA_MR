@@ -1,4 +1,4 @@
-Name of QuantLet : FA_PCA
+Name of QuantLet : SPL_FA
 
 Published in :  Factor Analysis and Multivariate Regression
 
