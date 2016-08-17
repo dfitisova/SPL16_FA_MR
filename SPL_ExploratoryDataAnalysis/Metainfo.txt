@@ -1,0 +1,17 @@
+Name of QuantLet : SPL_ED
+
+Published in :  Factor Analysis and Multivariate Regression
+
+Description : 'Exploratory data analysis'
+
+Keywords : 
+- quantiles
+- variance
+- mode, median, average
+- destribution
+- density
+- boxplot
+
+Authors : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
+
+Submitted : Sat, Aug 13 2016 
