@@ -5,12 +5,13 @@ Published in :  Factor Analysis and Multivariate Regression
 Description : 'Evaluation of PCA as a preparatory step to FA in order to define a sufficient number of components'
 
 Keywords : 
-- dimension-reduction
+- dimension reduction
+- principal component analysis
 - number of components
 - scree plot
 - PC loadings
 - Representation of the variables in PC space
 
-Author : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
+Authors : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
 
 Submitted : Sat, Aug 13 2016 
