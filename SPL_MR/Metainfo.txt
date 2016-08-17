@@ -1,0 +1,17 @@
+Name of QuantLet : SPL_MR
+
+Published in :  Factor Analysis and Multivariate Regression
+
+Description : 'Implementation of multivariate regression'
+
+Keywords : 
+- multivariate regression
+- multicollinearity
+- homoscedasticity
+- autocorrelation
+- distribution parameters
+- dummy variables
+
+Authors : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
+
+Submitted : Sat, Aug 13 2016 
