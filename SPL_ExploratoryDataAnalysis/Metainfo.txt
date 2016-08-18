@@ -12,6 +12,6 @@ Keywords :
 - density
 - boxplot
 
-Authors : Daria Fitisova, Maria Kozlova, Yihan Liu, Andrea Mina Weihe
+Authors : Daria Fitisova, Maria Kozlova, Andrea Mina Weihe
 
 Submitted : Sat, Aug 13 2016 
