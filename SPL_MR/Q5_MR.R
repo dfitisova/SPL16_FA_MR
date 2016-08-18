@@ -35,6 +35,7 @@ summary(Model2)
 #diagnostic plots (residuals vs fitted values, normal qq, scale-location, residuals vs leverage)
 layout(matrix(c(1,2,3,4),2,2))
 plot(Model2)
+dev.off()
 
 #Cooks distance
 plot(Model2, which=4)
