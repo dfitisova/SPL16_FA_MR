@@ -398,8 +398,5 @@ install.packages('gvlma')
 library('gvlma')
 gvmodelD <- gvlma(ModelDummy2)
 summary(gvmodelD)
-summary(ModelDummy)
-## !!!!!!!!!!!   Probably further the same as above? --> VIF, Bonferroni, CERES usw.
-
 
 
