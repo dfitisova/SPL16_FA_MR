@@ -2,7 +2,7 @@ Name of QuantLet : SPL_ED
 
 Published in :  Factor Analysis and Multivariate Regression
 
-Description : 'Exploratory data analysis'
+Discription : 'Exploratory data analysis'
 
 Keywords : 
 - quantiles
