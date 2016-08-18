@@ -36,20 +36,58 @@ summary(time)
 #visualize the overall dataset, compare time distributions per each occupation 
 boxplot(time, col=topo.colors(10), ylab="time")
 
-#make a histogram using `ggplot2`package
-#pdf(file="histPROF.pdf")
-#par(mfrow=c(1,1))
-#install.packages('ggplot2')
-#library('ggplot2')
-#ggplot(data=time, aes(time$PROF)) + geom_histogram(aes(y=density),breaks=seq (0,700, by=20), col="black", fill="blue", alpha=.2) + geom_density(col=2) + labs(title="Professional Activity") + labs(x="Hours", y="Count")
-#dev.off()
+#make a single histogram using `ggplot2`package
+install.packages('ggplot2')
+library("ggplot2")
 
-#Plot densities (separated)
-#par(mfrow=c(3,3), mar=c(2,1,1,1))
-#dfplot=function(data.frame){df=data.frame 
-#ln=length(names(data.frame))
-#for(i in 1:ln){plot(density(df[ ,i], main=names(df)[i], main=colnames(df)[i]))}}
-#dfplot(time)
+ggplot(data=time, aes(time$PROF)) +
+        geom_histogram(aes(y =..density..),
+                       breaks=seq(0, 700, by = 20),
+                       col="black",
+                       fill="blue",
+                       alpha = .2) +
+        geom_density(col=2) +
+        labs(title="Professional Activity") +
+        labs(x="Hours", y="Count")
+        
+dev.off()
+
+# create a histogram with other graphical parameters, without the density line 
+
+par(mfrow=c(1,1))
+ggplot(data=time, aes(time$PROF)) +
+        geom_histogram(breaks=seq(0, 900, by =20),
+                       col="black",
+                       aes(fill=..count..))  +
+        geom_density(col=1) +
+        labs(title="Work") +
+        labs(x="Hours", y="Count")
+dev.off()
+
+
+# create density plots of 9 variables: 
+
+# shorten the dataframe, excluding one variable
+time2 <- time[,-9]
+
+# set graphic parameters
+par(mfrow=c(3,3),mar=c(2,1,1,1)) 
+
+# write function that creates density plots for each variable
+dfplot <- function(data.frame) {
+        df <- data.frame
+        ln <- length(names(data.frame))
+        for(i in 1:ln){
+                plot(density(df[,i],main=names(df)[i]), main=colnames(df)[i])
+        }
+}
+
+
+# create density plots series 
+par(mfrow=c(3,3),mar=c(2,1,1,1))
+with(time2, dfplot(time2))
+title(main = "Density")
+dev.off()
 #-----------------------------------------------------------------------------------------
 
 ### Quantlet3: Principal Component Analysis (preparatory step before Factor Analysis)
