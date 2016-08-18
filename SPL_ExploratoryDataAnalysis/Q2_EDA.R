@@ -15,10 +15,10 @@ summary(time)
 #visualize the overall dataset, compare time distributions per each occupation 
 boxplot(time, col=topo.colors(10), ylab="time")
 
-#make a single histogram using `ggplot2`package and save it
+#make a single histogram using `ggplot2`package
+install.packages('ggplot2')
 library("ggplot2")
 
-pdf(file="histPROF.pdf")
 ggplot(data=time, aes(time$PROF)) +
         geom_histogram(aes(y =..density..),
                        breaks=seq(0, 700, by = 20),
@@ -31,10 +31,8 @@ ggplot(data=time, aes(time$PROF)) +
         
 dev.off()
 
-# create a histogram with other graphical parameters, and without the density line, 
-# and save it to the computer
+# create a histogram with other graphical parameters, without the density line 
 
-pdf(file = "histPROF.pdf")
 par(mfrow=c(1,1))
 ggplot(data=time, aes(time$PROF)) +
         geom_histogram(breaks=seq(0, 900, by =20),
@@ -64,8 +62,7 @@ dfplot <- function(data.frame) {
 }
 
 
-# create density plots series and store them
-pdf(file = "all_density.pdf")
+# create density plots series 
 par(mfrow=c(3,3),mar=c(2,1,1,1))
 with(time2, dfplot(time2))
 title(main = "Density")
