@@ -19,7 +19,7 @@ library('fmsb')
 VIF(Model1)
 summary(Model1)
 
-#draw a correlation matrix
+#plot a correlation matrix
 install.packages('corrplot')
 library('corrplot')
 c=cor(time)
