@@ -94,7 +94,79 @@ GEO <- as.vector(c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0)) # W
 timeD <- data.frame(cbind(time, GEND, GEO))
 
 # build a model with dummy variables
-ModelDummy <- lm( formula = TELE ~ PERS + EAT + SLEE + HOUS + GEND + GEO, data = timeD)
+ModelDummy <- lm(formula=TELE~PERS+EAT+SLEE+HOUS+GEND+GEO,data=timeD)
 summary(ModelDummy)
 
-# regression diagnostic plot commands and test commands for 'ModelDummy' are identical to those of previous models. 
+# regression diagnostic plot commands and test commands for 'ModelDummy' are identical to 
+# those of previous models. 
+
+# reduce the model, throwign away the EAT variable
+ModelDummy2 <- lm(TELE~PERS+SLEE+HOUS+GEND+GEO, data=timeD)
+summary(ModelDummy2)
+
+# Diagnostic plots:
+layout(matrix(c(1,2,3,4),2,2)) # optional 4 graphs/page
+plot(ModelDummy2) # DiagnosticsDummy
+
+# Assessing OUTLIERS:
+library('car')
+outlierTest(ModelDummy2)
+
+# QQ plot
+par(mfrow=c(1,1))
+qqPlot(ModelDummy2, main="QQ Plot") 
+
+# leverage plots
+leveragePlots(ModelDummy2) 
+
+# influential observations
+avPlots(ModelDummy2) 
+
+# Cook's disctance plot
+cutoffD <- 4/((nrow(time)-length(ModelDummy2$coefficients)-2))
+plot(ModelDummy2, which=4) 
+
+# Influence Plot
+influencePlot(ModelDummy2, id.method="identify", main="Influence Plot", sub="Circle size is proportial to Cook's Distance" ) 
+
+# distribution of studentized residuals
+library(MASS)
+sresidD <- studres(ModelDummy2)
+hist(sresidD, freq=FALSE, main="Distribution of Studentized Residuals", breaks=20)
+xfitD<-seq(min(sresidD),max(sresidD),length=40)
+yfitD<-dnorm(xfitD)
+lines(xfitD, yfitD) 
+
+# testing for homoscedasticity
+ncvTest(ModelDummy2)
+
+# Multicollinearity
+VIF(ModelDummy2) 
+sqrt(VIF(ModelDummy2)) > 2
+
+# building correlation matrix
+cor(timeD)
+
+library('corrplot')
+attach(timeD)
+cd <- cor(cbind(GEND, GEO, TELE, PERS, SLEE, HOUS))
+corrplot(cd, method = "circle")
+
+# checking for non-linearity:
+# Ceres plots
+ceresPlots(ModelDummy2) 
+
+# chacking all assumptions
+install.packages('gvlma')
+library('gvlma')
+gvmodelD <- gvlma(ModelDummy2)
+summary(gvmodelD)
+
+
+
+
+
+
+
+
+
